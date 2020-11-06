@@ -1,8 +1,96 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://resources/sprites/space-marin/space-marine-idle.png" type="Texture" id=1]
 [ext_resource path="res://resources/scripts/Player.cs" type="Script" id=2]
+[ext_resource path="res://resources/sprites/space-marin/space-marine-run.png" type="Texture" id=3]
 [ext_resource path="res://resources/sprites/scifi_space_rpg_tiles.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=19]
+resource_name = "Idle"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlayerSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PlayerSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "Run"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlayerSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 11 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PlayerSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
+[sub_resource type="ConvexPolygonShape2D" id=22]
+points = PoolVector2Array( -14, 1, 0, -2, 14, 1, 0, 3 )
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
+points = PoolVector2Array( 0, 76.4099, 48, 76.4099, 48, 96, 0, 96 )
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 48, 48, 0, 48, 0, 0, 48, 0 )
@@ -14,13 +102,13 @@ points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
 points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
+points = PoolVector2Array( 0, 0, 5.99597, 0, 5.99597, 48, 0, 48 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
+points = PoolVector2Array( 42.6155, 0, 48, 0, 48, 48, 42.6155, 48 )
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
@@ -32,22 +120,22 @@ points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
 points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
-points = PoolVector2Array( 48, 96, 0, 96, 0, 0, 48, 0 )
+points = PoolVector2Array( 48, 96, 0, 96, 0, 96, 48, 96 )
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
-points = PoolVector2Array( 48, 96, 1.52588e-05, 96, 1.52588e-05, 3.05176e-05, 48, 3.05176e-05 )
+points = PoolVector2Array( 48, 96, 1.52588e-05, 96, 0, 96, 48, 96 )
 
 [sub_resource type="ConvexPolygonShape2D" id=12]
-points = PoolVector2Array( 1.52588e-05, 3.05176e-05, 48, 3.05176e-05, 48, 96, 1.52588e-05, 96 )
+points = PoolVector2Array( 0, 96, 48, 96, 48, 96, 1.52588e-05, 96 )
 
 [sub_resource type="ConvexPolygonShape2D" id=13]
-points = PoolVector2Array( 144, 96, 7.62939e-06, 96, 7.62939e-06, 6.10352e-05, 144, 6.10352e-05 )
+points = PoolVector2Array( 144, 96, 7.62939e-06, 96, 0, 96, 144, 96 )
 
 [sub_resource type="ConvexPolygonShape2D" id=14]
-points = PoolVector2Array( 144, 96, 0, 96, 0, 1.52588e-05, 144, 1.52588e-05 )
+points = PoolVector2Array( 144, 96, 0, 96, 0, 96, 144, 96 )
 
 [sub_resource type="ConvexPolygonShape2D" id=15]
-points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 3.05176e-05 )
+points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 0, 96, 96, 96 )
 
 [sub_resource type="TileSet" id=16]
 0/name = "scifi_space_rpg_tiles.png 0"
@@ -610,7 +698,7 @@ points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 
 39/shape_one_way_margin = 0.0
 39/shapes = [  ]
 39/z_index = 0
-40/name = "scifi_space_rpg_tiles.png 40"
+40/name = "Distributeur"
 40/texture = ExtResource( 4 )
 40/tex_offset = Vector2( 0, 0 )
 40/modulate = Color( 1, 1, 1, 1 )
@@ -620,10 +708,17 @@ points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 
 40/navigation_offset = Vector2( 0, 0 )
 40/shape_offset = Vector2( 0, 0 )
 40/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+40/shape = SubResource( 21 )
 40/shape_one_way = false
-40/shape_one_way_margin = 0.0
-40/shapes = [  ]
-40/z_index = 0
+40/shape_one_way_margin = 1.0
+40/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 21 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+40/z_index = 1
 41/name = "scifi_space_rpg_tiles.png 41"
 41/texture = ExtResource( 4 )
 41/tex_offset = Vector2( 0, 0 )
@@ -723,8 +818,8 @@ points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 
 46/tile_mode = 0
 46/occluder_offset = Vector2( 0, 0 )
 46/navigation_offset = Vector2( 0, 0 )
-46/shape_offset = Vector2( 0, 0 )
-46/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+46/shape_offset = Vector2( 0, 96 )
+46/shape_transform = Transform2D( 1, 0, 0, 1, 0, 96 )
 46/shape = SubResource( 4 )
 46/shape_one_way = false
 46/shape_one_way_margin = 1.0
@@ -733,9 +828,9 @@ points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 4 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 96 )
 } ]
-46/z_index = 0
+46/z_index = 1
 47/name = "scifi_space_rpg_tiles.png 47"
 47/texture = ExtResource( 4 )
 47/tex_offset = Vector2( 0, 0 )
@@ -765,8 +860,8 @@ points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 
 48/tile_mode = 0
 48/occluder_offset = Vector2( 0, 0 )
 48/navigation_offset = Vector2( 0, 0 )
-48/shape_offset = Vector2( 0, 0 )
-48/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+48/shape_offset = Vector2( 0, 96 )
+48/shape_transform = Transform2D( 1, 0, 0, 1, 0, 96 )
 48/shape = SubResource( 6 )
 48/shape_one_way = false
 48/shape_one_way_margin = 1.0
@@ -775,9 +870,9 @@ points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 6 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 96 )
 } ]
-48/z_index = 0
+48/z_index = 1
 49/name = "scifi_space_rpg_tiles.png 49"
 49/texture = ExtResource( 4 )
 49/tex_offset = Vector2( 0, 0 )
@@ -1001,7 +1096,7 @@ points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 
 "shape": SubResource( 10 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
-68/z_index = 0
+68/z_index = 1
 70/name = "scifi_space_rpg_tiles.png 70"
 70/texture = ExtResource( 4 )
 70/tex_offset = Vector2( 0, 0 )
@@ -1022,7 +1117,7 @@ points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 
 "shape": SubResource( 11 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
-70/z_index = 0
+70/z_index = 1
 71/name = "scifi_space_rpg_tiles.png 71"
 71/texture = ExtResource( 4 )
 71/tex_offset = Vector2( 0, 0 )
@@ -1043,7 +1138,7 @@ points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 
 "shape": SubResource( 12 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
-71/z_index = 0
+71/z_index = 1
 75/name = "scifi_space_rpg_tiles.png 75"
 75/texture = ExtResource( 4 )
 75/tex_offset = Vector2( 0, 0 )
@@ -1057,7 +1152,7 @@ points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 
 75/shape_one_way = false
 75/shape_one_way_margin = 0.0
 75/shapes = [  ]
-75/z_index = 0
+75/z_index = 1
 76/name = "scifi_space_rpg_tiles.png 76"
 76/texture = ExtResource( 4 )
 76/tex_offset = Vector2( 0, 0 )
@@ -1092,7 +1187,7 @@ points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 
 "shape": SubResource( 13 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
-77/z_index = 0
+77/z_index = 1
 78/name = "scifi_space_rpg_tiles.png 78"
 78/texture = ExtResource( 4 )
 78/tex_offset = Vector2( 0, 0 )
@@ -1155,7 +1250,7 @@ points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 
 "shape": SubResource( 14 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
-81/z_index = 0
+81/z_index = 1
 82/name = "scifi_space_rpg_tiles.png 82"
 82/texture = ExtResource( 4 )
 82/tex_offset = Vector2( 0, 0 )
@@ -1176,28 +1271,39 @@ points = PoolVector2Array( 96, 96, 3.8147e-06, 96, 3.8147e-06, 3.05176e-05, 96, 
 "shape": SubResource( 15 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
-82/z_index = 0
-
-[sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 24.2568, 18.6597 )
+82/z_index = 1
 
 [node name="Root" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" type="KinematicBody2D" parent="YSort"]
+position = Vector2( 508.498, 139.255 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PlayerAnimation" type="AnimationPlayer" parent="YSort/Player"]
+anims/Idle = SubResource( 19 )
+anims/Run = SubResource( 20 )
+
+[node name="BoundingBox" type="CollisionShape2D" parent="YSort/Player"]
+position = Vector2( 0, 32 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 22 )
+
+[node name="PlayerSprite" type="Sprite" parent="YSort/Player"]
+texture = ExtResource( 3 )
+offset = Vector2( 9, 11 )
+hframes = 11
+
+[node name="TileMap" type="TileMap" parent="YSort"]
 tile_set = SubResource( 16 )
 cell_size = Vector2( 48, 48 )
+cell_tile_origin = 2
+cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( 5, 48, 0, 6, 81, 0, 7, 64, 0, 8, 66, 0, 9, 77, 0, 10, 57, 0, 12, 81, 0, 13, 66, 0, 15, 46, 0, 65541, 48, 0, 65546, 56, 0, 65551, 46, 0, 131077, 48, 0, 131078, 59, 0, 131079, 59, 0, 131080, 59, 0, 131081, 59, 0, 131082, 59, 0, 131083, 59, 0, 131084, 59, 0, 131085, 59, 0, 131086, 59, 0, 131087, 46, 0, 196610, 68, 0, 196611, 68, 0, 196612, 68, 0, 196613, 71, 0, 196614, 59, 0, 196615, 59, 0, 196616, 59, 0, 196617, 59, 0, 196618, 59, 0, 196619, 59, 0, 196620, 59, 0, 196621, 59, 0, 196622, 59, 0, 196623, 70, 0, 196624, 68, 0, 196625, 82, 0, 196626, 67, 0, 262150, 59, 0, 262151, 59, 0, 262152, 59, 0, 262153, 59, 0, 262154, 59, 0, 262155, 59, 0, 262156, 59, 0, 262157, 59, 0, 262158, 59, 0, 327682, 59, 0, 327683, 59, 0, 327684, 59, 0, 327685, 59, 0, 327686, 59, 0, 327687, 59, 0, 327688, 59, 0, 327689, 59, 0, 327690, 59, 0, 327691, 59, 0, 327692, 59, 0, 327693, 59, 0, 327694, 59, 0, 327695, 59, 0, 327696, 59, 0, 327697, 59, 0, 327698, 59, 0, 393218, 59, 0, 393219, 59, 0, 393220, 59, 0, 393221, 59, 0, 393222, 59, 0, 393223, 59, 0, 393224, 59, 0, 393225, 59, 0, 393226, 59, 0, 393227, 59, 0, 393228, 59, 0, 393229, 59, 0, 393230, 59, 0, 393231, 59, 0, 393232, 59, 0, 393233, 59, 0, 393234, 59, 0, 458754, 44, 0, 458755, 44, 0, 458756, 44, 0, 458757, 44, 0, 458758, 44, 0, 458759, 44, 0, 458760, 44, 0, 458761, 44, 0, 458762, 44, 0, 458763, 44, 0, 458764, 44, 0, 458765, 44, 0, 458766, 44, 0, 458767, 44, 0, 458768, 44, 0, 458769, 44, 0, 458770, 44, 0 )
-
-[node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 525.196, 192.387 )
-script = ExtResource( 2 )
-
-[node name="BoundingBox" type="CollisionShape2D" parent="Player"]
-position = Vector2( 0.0746479, 5.27776 )
-shape = SubResource( 17 )
-
-[node name="PlayerSprite" type="Sprite" parent="Player"]
-texture = ExtResource( 1 )
-hframes = 4
-frame = 1
+tile_data = PoolIntArray( 5, 48, 0, 6, 81, 0, 7, 64, 0, 8, 66, 0, 9, 68, 0, 10, 75, 0, 11, 68, 0, 12, 81, 0, 13, 66, 0, 15, 46, 0, 65541, 48, 0, 65546, 56, 0, 65551, 46, 0, 131077, 48, 0, 131078, 59, 0, 131079, 59, 0, 131080, 59, 0, 131081, 59, 0, 131082, 59, 0, 131083, 59, 0, 131084, 59, 0, 131085, 59, 0, 131086, 59, 0, 131087, 46, 0, 196610, 68, 0, 196611, 68, 0, 196612, 68, 0, 196613, 71, 0, 196614, 59, 0, 196615, 59, 0, 196616, 59, 0, 196617, 59, 0, 196618, 59, 0, 196619, 59, 0, 196620, 40, 0, 196621, 59, 0, 196622, 59, 0, 196623, 70, 0, 196624, 68, 0, 196625, 82, 0, 196626, 67, 0, 262150, 59, 0, 262151, 59, 0, 262152, 68, 0, 262153, 59, 0, 262154, 59, 0, 262155, 59, 0, 262156, 59, 0, 262157, 59, 0, 262158, 59, 0, 327682, 59, 0, 327683, 59, 0, 327684, 59, 0, 327685, 59, 0, 327686, 59, 0, 327687, 59, 0, 327688, 59, 0, 327689, 59, 0, 327690, 59, 0, 327691, 59, 0, 327692, 59, 0, 327693, 59, 0, 327694, 59, 0, 327695, 59, 0, 327696, 59, 0, 327697, 59, 0, 327698, 59, 0, 393218, 59, 0, 393219, 59, 0, 393220, 59, 0, 393221, 59, 0, 393222, 59, 0, 393223, 59, 0, 393224, 59, 0, 393225, 59, 0, 393226, 59, 0, 393227, 59, 0, 393228, 59, 0, 393229, 59, 0, 393230, 59, 0, 393231, 59, 0, 393232, 59, 0, 393233, 59, 0, 393234, 59, 0, 458754, 44, 0, 458755, 44, 0, 458756, 44, 0, 458757, 44, 0, 458758, 44, 0, 458759, 44, 0, 458760, 44, 0, 458761, 44, 0, 458762, 44, 0, 458763, 44, 0, 458764, 44, 0, 458765, 44, 0, 458766, 44, 0, 458767, 44, 0, 458768, 44, 0, 458769, 44, 0, 458770, 44, 0 )
