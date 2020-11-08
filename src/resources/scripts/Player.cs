@@ -111,8 +111,6 @@ public class Player : KinematicBody2D
 		{
 			_currentDirection = direction;
             Visual.Scale = new Vector2((int)direction, 1);
-                //			Sprite.Offset = new Vector2((int)direction * 9, Sprite.Offset.y);
 		}
-		//PlayerAnimation. = _playerDirection == HorizontalMovement.Left;
 	}
 }
