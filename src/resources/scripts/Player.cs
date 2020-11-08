@@ -17,6 +17,7 @@ public class Player : KinematicBody2D
 
 
 	public AnimationPlayer Animation => GetNode<AnimationPlayer>("PlayerAnimation");
+	public Node2D Visual => GetNode<Node2D>("Visual");
 	public Sprite Sprite => GetNode<Sprite>("PlayerSprite");
 	public CollisionShape2D BoundingBox => GetNode<CollisionShape2D>("BoundingBox");
 	public Vector2 Velocity { get; set; }
@@ -109,8 +110,8 @@ public class Player : KinematicBody2D
 		if (direction != HorizontalMovement.None && direction != _currentDirection)
 		{
 			_currentDirection = direction;
-			Sprite.FlipH = direction == HorizontalMovement.Left;
-			Sprite.Offset = new Vector2((int)direction * 9, Sprite.Offset.y);
+            Visual.Scale = new Vector2((int)direction, 1);
+                //			Sprite.Offset = new Vector2((int)direction * 9, Sprite.Offset.y);
 		}
 		//PlayerAnimation. = _playerDirection == HorizontalMovement.Left;
 	}
